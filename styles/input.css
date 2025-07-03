@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Kumbh Sans";
+    src: url("../assets/fonts/KumbhSans-VariableFont_YOPQ\,wght.ttf") format("truetype");
+}
+
+@import "tailwindcss";
+
+
+@utility container {
+    margin-inline: auto;
+    padding-inline: 2rem;
+}
+
+@theme {
+    --font-display: "Kumbh Sans";
+
+    --color-orange: hsl(26, 100%, 55%);
+    --color-orange-100: hsl(25, 100%, 94%);
+
+    --color-slate: hsl(223, 64%, 98%);
+    --color-slate-300: hsl(220, 14%, 75%);
+    --color-slate-500: hsl(219, 9%, 45%);
+    --color-slate-900: hsl(220, 13%, 13%);
+}
+
+/* @theme {
+    --breakpoint-xs: 30rem;
+    --breakpoint-2xl: 30rem;
+    --breakpoint-3xl: 120rem;
+
+    --container-8xl: 98rem;
+} */
+
+/* @layer components {
+    .btn {
+        @apply text-2xl border-amber-700 cursor-pointer p-2;
+    }
+}
+
+@layer utilities {
+    .container-md {
+        @apply container mx-auto;
+    }
+} */
