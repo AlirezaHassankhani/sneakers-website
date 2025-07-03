@@ -81,17 +81,55 @@
 
     <main>
       <div class="container">
-        <div class="p-20">
-          <div class="flex justify-between items-center gap-28">
-            <div class="flex-2/5">
+        <div class="lg:p-20">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 justify-between items-center gap-28"
+          >
+            <div>
               <img
                 src="./assets/images/image-product-1.jpg"
                 alt="product"
                 class="rounded-2xl"
               />
+
+              <div
+                class="flex justify-between mt-8 [&>div]:border-orange [&>div]:transition-all [&>div:hover]:border-2"
+              >
+                <div class="size-28 rounded-2xl cursor-pointer overflow-hidden group border-2">
+                  <img
+                    src="./assets/images/image-product-1-thumbnail.jpg"
+                    alt="product-thumbnail"
+                    class="object-cover opacity-50"
+                  />
+                </div>
+
+                <div class="size-28 rounded-2xl cursor-pointer overflow-hidden group">
+                  <img
+                    src="./assets/images/image-product-2-thumbnail.jpg"
+                    alt="product-thumbnail"
+                    class="object-cover transition-all group-hover:opacity-50"
+                  />
+                </div>
+
+                <div class="size-28 rounded-2xl cursor-pointer overflow-hidden group">
+                  <img
+                    src="./assets/images/image-product-3-thumbnail.jpg"
+                    alt="product-thumbnail"
+                    class="object-cover transition-all group-hover:opacity-50"
+                  />
+                </div>
+
+                <div class="size-28 rounded-2xl cursor-pointer overflow-hidden group">
+                  <img
+                    src="./assets/images/image-product-4-thumbnail.jpg"
+                    alt="product-thumbnail"
+                    class="object-cover transition-all group-hover:opacity-50"
+                  />
+                </div>
+              </div>
             </div>
 
-            <div class="flex-3/5 font-display space-y-8">
+            <div class="font-display space-y-8">
               <p class="text-slate-500 font-bold uppercase">sneaker company</p>
 
               <h1 class="text-4xl font-bold capitalize">
@@ -116,9 +154,13 @@
                 <p class="text-slate-500 line-through font-bold">$250.00</p>
               </div>
 
-              <div class="flex justify-between items-center gap-8">
-                <div class="flex-1/3 bg-slate-50 flex gap-16 justify-between items-center p-2 rounded-md">
-                  <button class="cursor-pointer">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-2 justify-between gap-8"
+              >
+                <div
+                  class="bg-slate-50 flex justify-between px-4 rounded-md h-12"
+                >
+                  <button class="cursor-pointer group">
                     <svg
                       width="12"
                       height="4"
@@ -131,32 +173,42 @@
                           id="a"
                         />
                       </defs>
-                      <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" />
+                      <use
+                        class="fill-[#FF7E1B] transition-all group-hover:fill-orange-100"
+                        fill-rule="nonzero"
+                        xlink:href="#a"
+                      />
                     </svg>
                   </button>
 
-                  <p>0</p>
+                  <div class="flex items-center">
+                    <p>0</p>
+                  </div>
 
-                  <button class="cursor-pointer">
+                  <button class="cursor-pointer group">
                     <svg
-                    width="12"
-                    height="12"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                  >
-                    <defs>
-                      <path
-                        d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
-                        id="b"
+                      width="12"
+                      height="12"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <defs>
+                        <path
+                          d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
+                          id="b"
+                        />
+                      </defs>
+                      <use
+                        class="fill-[#FF7E1B] transition-all group-hover:fill-orange-100"
+                        fill-rule="nonzero"
+                        xlink:href="#b"
                       />
-                    </defs>
-                    <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b" />
-                  </svg>
+                    </svg>
                   </button>
                 </div>
 
                 <button
-                  class="flex-2/3 bg-orange text-black cursor-pointer flex justify-center items-center gap-4 py-3 px-6 rounded-md"
+                  class="bg-orange text-black cursor-pointer flex justify-center items-center gap-4 py-3 rounded-md transition-all hover:bg-orange-100"
                 >
                   <svg
                     width="22"
