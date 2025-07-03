@@ -77,6 +77,40 @@
           </div>
         </div>
       </div>
+
+      <!-- Mobile Nav -->
+
+      <div
+        class="lg:hidden bg-white w-64 overflow-y-auto p-4 fixed top-0 bottom-0 z-50 transition-all -left-64"
+      >
+        <div>
+          <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+              fill="#69707D"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+
+        <ul class="font-display font-bold text-md text-slate-900 space-y-4 mt-10">
+          <li>
+            <a href="#">Collections</a>
+          </li>
+          <li>
+            <a href="#">Men</a>
+          </li>
+          <li>
+            <a href="#">Women</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
     </header>
 
     <main>
@@ -93,9 +127,11 @@
               />
 
               <div
-                class="flex justify-between mt-8 [&>div]:border-orange [&>div]:transition-all [&>div:hover]:border-2"
+                class="max-lg:hidden grid grid-cols-4 gap-4 xl:gap-10 mt-8 [&>div]:border-orange [&>div]:transition-all [&>div:hover]:border-2"
               >
-                <div class="size-28 rounded-2xl cursor-pointer overflow-hidden group border-2">
+                <div
+                  class="rounded-2xl cursor-pointer overflow-hidden group border-2"
+                >
                   <img
                     src="./assets/images/image-product-1-thumbnail.jpg"
                     alt="product-thumbnail"
@@ -103,7 +139,7 @@
                   />
                 </div>
 
-                <div class="size-28 rounded-2xl cursor-pointer overflow-hidden group">
+                <div class="rounded-2xl cursor-pointer overflow-hidden group">
                   <img
                     src="./assets/images/image-product-2-thumbnail.jpg"
                     alt="product-thumbnail"
@@ -111,7 +147,7 @@
                   />
                 </div>
 
-                <div class="size-28 rounded-2xl cursor-pointer overflow-hidden group">
+                <div class="rounded-2xl cursor-pointer overflow-hidden group">
                   <img
                     src="./assets/images/image-product-3-thumbnail.jpg"
                     alt="product-thumbnail"
@@ -119,7 +155,7 @@
                   />
                 </div>
 
-                <div class="size-28 rounded-2xl cursor-pointer overflow-hidden group">
+                <div class="rounded-2xl cursor-pointer overflow-hidden group">
                   <img
                     src="./assets/images/image-product-4-thumbnail.jpg"
                     alt="product-thumbnail"
@@ -230,5 +266,9 @@
         </div>
       </div>
     </main>
+
+    <div
+      class="overlay fixed w-full h-full top-0 left-0 bg-black/40 z-40 transition-all invisible opacity-0"
+    ></div>
   </body>
 </html>
