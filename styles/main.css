@@ -201,6 +201,14 @@
   .table {
     display: table;
   }
+  .size-6 {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
+  .size-8 {
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+  }
   .size-12 {
     width: calc(var(--spacing) * 12);
     height: calc(var(--spacing) * 12);
@@ -219,6 +227,15 @@
   }
   .justify-between {
     justify-content: space-between;
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
   }
   .gap-12 {
     gap: calc(var(--spacing) * 12);
@@ -258,6 +275,9 @@
   }
   .object-cover {
     object-fit: cover;
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
   }
   .font-display {
     font-family: var(--font-display);
@@ -340,6 +360,77 @@
       @media (hover: hover) {
         color: var(--color-slate-900);
       }
+    }
+  }
+  .max-lg\:hidden {
+    @media (width < 64rem) {
+      display: none;
+    }
+  }
+  .max-lg\:py-2 {
+    @media (width < 64rem) {
+      padding-block: calc(var(--spacing) * 2);
+    }
+  }
+  .max-lg\:py-4 {
+    @media (width < 64rem) {
+      padding-block: calc(var(--spacing) * 4);
+    }
+  }
+  .sm\:hidden {
+    @media (width >= 40rem) {
+      display: none;
+    }
+  }
+  .sm\:text-slate-500 {
+    @media (width >= 40rem) {
+      color: var(--color-slate-500);
+    }
+  }
+  .sm\:max-lg\:hidden {
+    @media (width >= 40rem) {
+      @media (width < 64rem) {
+        display: none;
+      }
+    }
+  }
+  .sm\:max-md\:text-slate-500 {
+    @media (width >= 40rem) {
+      @media (width < 48rem) {
+        color: var(--color-slate-500);
+      }
+    }
+  }
+  .min-lg\:hidden {
+    @media (width >= 64rem) {
+      display: none;
+    }
+  }
+  .lg\:size-12 {
+    @media (width >= 64rem) {
+      width: calc(var(--spacing) * 12);
+      height: calc(var(--spacing) * 12);
+    }
+  }
+  .lg\:gap-12 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 12);
+    }
+  }
+  .lg\:border-b {
+    @media (width >= 64rem) {
+      border-bottom-style: var(--tw-border-style);
+      border-bottom-width: 1px;
+    }
+  }
+  .lg\:border-slate-300 {
+    @media (width >= 64rem) {
+      border-color: var(--color-slate-300);
+    }
+  }
+  .min-lg\:py-2 {
+    @media (width >= 64rem) {
+      padding-block: calc(var(--spacing) * 2);
     }
   }
   .\[\&\>a\]\:flex {
