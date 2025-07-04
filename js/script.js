@@ -74,6 +74,7 @@ function setCart() {
     cart.forEach((product) => {
       const divMain = document.createElement("div");
       divMain.className = "flex justify-evenly items-center gap-4 h-16";
+      divMain.dataset.id = product.id;
 
       const img = document.createElement("img");
       img.src = "./assets/images/image-product-1-thumbnail.jpg";
@@ -103,7 +104,15 @@ function setCart() {
 
       divIcon.addEventListener("click", () => {
         cart = cart.filter((p) => p.id != product.id);
-        setCart();
+
+        let selectedProduct = cartBox.querySelector(`[data-id="${product.id}"]`);
+        if (selectedProduct) {
+          selectedProduct.remove();
+        }
+
+        if (cart.length === 0) {
+          setCart();
+        }
       });
 
       divIcon.className = "cursor-pointer";
