@@ -9,7 +9,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="./styles/main.css" />
-    <script src="/js/script.js" defer></script>
+    
     <title>Sneakers</title>
   </head>
   <body>
@@ -203,7 +203,7 @@
                 <div
                   class="bg-slate-50 flex justify-between px-4 rounded-md h-12"
                 >
-                  <button class="cursor-pointer group">
+                  <button class="decrease-btn cursor-pointer group">
                     <svg
                       width="12"
                       height="4"
@@ -225,10 +225,10 @@
                   </button>
 
                   <div class="flex items-center">
-                    <p>0</p>
+                    <p class="counter-display">0</p>
                   </div>
 
-                  <button class="cursor-pointer group">
+                  <button class="increase-btn cursor-pointer group">
                     <svg
                       width="12"
                       height="12"
@@ -277,5 +277,7 @@
     <div
       class="overlay fixed w-full h-full top-0 left-0 bg-black/40 z-40 transition-all invisible opacity-0"
     ></div>
+
+    <script type="module" src="/js/script.js"></script>
   </body>
 </html>
