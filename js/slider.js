@@ -5,6 +5,8 @@ let slider = document.querySelector(".slider");
 let currentPicture = document.querySelector(".current-picture");
 let sliderNavigation = document.querySelector(".slider-navigation");
 let closeSlider = document.querySelector(".close-slider");
+let previousBtnSlider = document.querySelector(".previous-btn-slider");
+let nextBtnSlider = document.querySelector(".next-btn-slider");
 let picture = [
     {
         id: "1",
@@ -23,13 +25,45 @@ let picture = [
         src: "./assets/images/image-product-4.jpg",
     },
 ];
-const closeSliderBtn = () => {
+function previousHandler() {
+    let previousImg = sliderNavigation?.querySelector(`[data-id="${currentPicture.dataset.id}"]`);
+    previousImg.dataset.isSelected = "false";
+    let numberID = Number(currentPicture.dataset.id) - 1;
+    if (numberID < 1)
+        numberID = 4;
+    let currentID = String(numberID);
+    let currentImg = sliderNavigation?.querySelector(`[data-id="${numberID}"]`);
+    currentImg.dataset.isSelected = "true";
+    let { id, src } = picture.find((i) => i.id === currentID);
+    if (currentPicture) {
+        currentPicture.dataset.id = id;
+        currentPicture.src = src;
+    }
+}
+function nextHandler() {
+    let previousImg = sliderNavigation?.querySelector(`[data-id="${currentPicture.dataset.id}"]`);
+    previousImg.dataset.isSelected = "false";
+    let numberID = Number(currentPicture.dataset.id) + 1;
+    if (numberID > 4)
+        numberID = 1;
+    let currentID = String(numberID);
+    let currentImg = sliderNavigation?.querySelector(`[data-id="${numberID}"]`);
+    currentImg.dataset.isSelected = "true";
+    let { id, src } = picture.find((i) => i.id === currentID);
+    if (currentPicture) {
+        currentPicture.dataset.id = id;
+        currentPicture.src = src;
+    }
+}
+previousBtnSlider?.addEventListener("click", previousHandler);
+nextBtnSlider?.addEventListener("click", nextHandler);
+function closeSliderBtn() {
     overal?.classList.add(...["invisible", "opacity-0"]);
     slider?.classList.add(...["invisible", "opacity-0"]);
     sliderNavigation?.querySelectorAll("div").forEach((div) => {
         div.dataset.isSelected = "false";
     });
-};
+}
 overal?.addEventListener("click", closeSliderBtn);
 closeSlider?.addEventListener("click", closeSliderBtn);
 galleryPicture?.querySelectorAll("div").forEach((div) => div.addEventListener("click", () => {
