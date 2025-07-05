@@ -202,6 +202,9 @@
   .-right-18 {
     right: calc(var(--spacing) * -18);
   }
+  .right-\[calc\(50\%_-_248px\)\] {
+    right: calc(50% - 248px);
+  }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
@@ -287,6 +290,18 @@
   .h-40 {
     height: calc(var(--spacing) * 40);
   }
+  .h-\[10\] {
+    height: 10;
+  }
+  .h-\[10rem\] {
+    height: 10rem;
+  }
+  .h-\[calc\(\)\] {
+    height: calc();
+  }
+  .h-\[calc\(100\)\] {
+    height: calc(100);
+  }
   .h-full {
     height: 100%;
   }
@@ -295,6 +310,9 @@
   }
   .w-80 {
     width: calc(var(--spacing) * 80);
+  }
+  .w-\[calc\(100\%_-_10rem\)\] {
+    width: calc(100% - 10rem);
   }
   .w-fit {
     width: fit-content;
@@ -332,6 +350,9 @@
   .items-center {
     align-items: center;
   }
+  .items-end {
+    align-items: flex-end;
+  }
   .justify-between {
     justify-content: space-between;
   }
@@ -352,6 +373,9 @@
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
+  }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
   }
   .gap-28 {
     gap: calc(var(--spacing) * 28);
@@ -439,6 +463,9 @@
   }
   .fill-\[\#FF7E1B\] {
     fill: #FF7E1B;
+  }
+  .fill-white {
+    fill: var(--color-white);
   }
   .stroke-\[\#1D2026\] {
     stroke: #1D2026;
@@ -553,6 +580,13 @@
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         visibility: visible;
+      }
+    }
+  }
+  .group-hover\:fill-orange {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-orange);
       }
     }
   }

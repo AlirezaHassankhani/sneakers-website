@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./styles/slider.css">
+    <link rel="stylesheet" href="./styles/slider.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <script type="module" src="/js/script.js" defer></script>
     <script src="/js/slider.js" defer></script>
@@ -263,90 +263,100 @@
       </div>
     </main>
 
-    <div
-      class="slider fixed w-fit h-full top-0 z-50 flex flex-col justify-center items-center gap-8 invisible opacity-0"
-    >
-      <div class="flex items-center">
-        <div
-          class="bg-white size-12 rounded-full flex justify-center items-center text-slate-900 cursor-pointer -me-6 z-10 group"
-        >
-          <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M11 1 3 9l8 8"
-              class="stroke-[#1D2026] transition-all group-hover:stroke-orange"
-              stroke-width="3"
-              fill="none"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-
-        <div>
-          <img src="#" alt="product" class="current-picture w-md rounded-2xl">
-        </div>
-
-        <div
-          class="bg-white size-12 rounded-full flex justify-center items-center text-slate-900 cursor-pointer -ms-6 z-10 group"
-        >
-          <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="m2 1 8 8-8 8"
-              class="stroke-[#1D2026] transition-all group-hover:stroke-orange"
-              stroke-width="3"
-              fill="none"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
+    <div class="max-lg:hidden slider fixed w-fit h-full top-0 right-[calc(50%_-_248px)] flex flex-col justify-center items-end gap-10 z-50 invisible opacity-0">
+      <div class="close-slider cursor-pointer group">
+        <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+            class="fill-white transition-all group-hover:fill-orange"
+            fill-rule="evenodd"
+          />
+        </svg>
       </div>
 
-      <div class="slider-navigation grid grid-cols-4 gap-4 xl:gap-10 w-sm">
-        <div
-          class="relative rounded-2xl cursor-pointer overflow-hidden"
-          data-is-selected="false"
-          data-id="1"
-        >
-          <img
-            src="./assets/images/image-product-1-thumbnail.jpg"
-            alt="product-thumbnail"
-            class="object-cover"
-          />
+      <div class="flex flex-col justify-center items-center gap-8">
+        <div class="flex items-center">
+          <div
+            class="bg-white size-12 rounded-full flex justify-center items-center text-slate-900 cursor-pointer -me-6 z-10 group"
+          >
+            <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 1 3 9l8 8"
+                class="stroke-[#1D2026] transition-all group-hover:stroke-orange"
+                stroke-width="3"
+                fill="none"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+
+          <div>
+            <img src="#" alt="product" class="current-picture w-md rounded-2xl" />
+          </div>
+
+          <div
+            class="bg-white size-12 rounded-full flex justify-center items-center text-slate-900 cursor-pointer -ms-6 z-10 group"
+          >
+            <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m2 1 8 8-8 8"
+                class="stroke-[#1D2026] transition-all group-hover:stroke-orange"
+                stroke-width="3"
+                fill="none"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
         </div>
 
-        <div
-          class="relative rounded-2xl cursor-pointer overflow-hidden"
-          data-is-selected="false"
-          data-id="2"
-        >
-          <img
-            src="./assets/images/image-product-2-thumbnail.jpg"
-            alt="product-thumbnail"
-            class="object-cover"
-          />
-        </div>
+        <div class="slider-navigation grid grid-cols-4 gap-4 xl:gap-10 w-sm">
+          <div
+            class="relative rounded-2xl cursor-pointer overflow-hidden"
+            data-is-selected="false"
+            data-id="1"
+          >
+            <img
+              src="./assets/images/image-product-1-thumbnail.jpg"
+              alt="product-thumbnail"
+              class="object-cover"
+            />
+          </div>
 
-        <div
-          class="relative rounded-2xl cursor-pointer overflow-hidden"
-          data-is-selected="false"
-          data-id="3"
-        >
-          <img
-            src="./assets/images/image-product-3-thumbnail.jpg"
-            alt="product-thumbnail"
-            class="object-cover"
-          />
-        </div>
+          <div
+            class="relative rounded-2xl cursor-pointer overflow-hidden"
+            data-is-selected="false"
+            data-id="2"
+          >
+            <img
+              src="./assets/images/image-product-2-thumbnail.jpg"
+              alt="product-thumbnail"
+              class="object-cover"
+            />
+          </div>
 
-        <div
-          class="relative rounded-2xl cursor-pointer overflow-hidden"
-          data-is-selected="false"
-          data-id="4"
-        >
-          <img
-            src="./assets/images/image-product-4-thumbnail.jpg"
-            alt="product-thumbnail"
-            class="object-cover"
-          />
+          <div
+            class="relative rounded-2xl cursor-pointer overflow-hidden"
+            data-is-selected="false"
+            data-id="3"
+          >
+            <img
+              src="./assets/images/image-product-3-thumbnail.jpg"
+              alt="product-thumbnail"
+              class="object-cover"
+            />
+          </div>
+
+          <div
+            class="relative rounded-2xl cursor-pointer overflow-hidden"
+            data-is-selected="false"
+            data-id="4"
+          >
+            <img
+              src="./assets/images/image-product-4-thumbnail.jpg"
+              alt="product-thumbnail"
+              class="object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>

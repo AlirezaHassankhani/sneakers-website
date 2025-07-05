@@ -4,6 +4,7 @@ let overal = document.querySelector(".overlay");
 let slider = document.querySelector(".slider");
 let currentPicture = document.querySelector(".current-picture");
 let sliderNavigation = document.querySelector(".slider-navigation");
+let closeSlider = document.querySelector(".close-slider");
 let picture = [
     {
         id: "1",
@@ -22,10 +23,15 @@ let picture = [
         src: "./assets/images/image-product-4.jpg",
     },
 ];
-overal?.addEventListener("click", () => {
+const closeSliderBtn = () => {
     overal?.classList.add(...["invisible", "opacity-0"]);
     slider?.classList.add(...["invisible", "opacity-0"]);
-}, { capture: true });
+    sliderNavigation?.querySelectorAll("div").forEach((div) => {
+        div.dataset.isSelected = "false";
+    });
+};
+overal?.addEventListener("click", closeSliderBtn);
+closeSlider?.addEventListener("click", closeSliderBtn);
 galleryPicture?.querySelectorAll("div").forEach((div) => div.addEventListener("click", () => {
     overal?.classList.remove(...["invisible", "opacity-0"]);
     slider?.classList.remove(...["invisible", "opacity-0"]);
