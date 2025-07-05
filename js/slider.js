@@ -26,37 +26,30 @@ let picture = [
     },
 ];
 function previousHandler() {
-    let previousImg = sliderNavigation?.querySelector(`[data-id="${currentPicture.dataset.id}"]`);
-    previousImg.dataset.isSelected = "false";
     let numberID = Number(currentPicture.dataset.id) - 1;
     if (numberID < 1)
         numberID = 4;
-    let currentID = String(numberID);
-    let currentImg = sliderNavigation?.querySelector(`[data-id="${numberID}"]`);
-    currentImg.dataset.isSelected = "true";
-    let { id, src } = picture.find((i) => i.id === currentID);
-    if (currentPicture) {
-        currentPicture.dataset.id = id;
-        currentPicture.src = src;
-    }
+    let newID = String(numberID);
+    changeImage(newID);
 }
 function nextHandler() {
-    let previousImg = sliderNavigation?.querySelector(`[data-id="${currentPicture.dataset.id}"]`);
-    previousImg.dataset.isSelected = "false";
     let numberID = Number(currentPicture.dataset.id) + 1;
     if (numberID > 4)
         numberID = 1;
-    let currentID = String(numberID);
-    let currentImg = sliderNavigation?.querySelector(`[data-id="${numberID}"]`);
+    let newID = String(numberID);
+    changeImage(newID);
+}
+function changeImage(newID) {
+    let previousImg = sliderNavigation?.querySelector(`[data-id="${currentPicture.dataset.id}"]`);
+    previousImg.dataset.isSelected = "false";
+    let currentImg = sliderNavigation?.querySelector(`[data-id="${newID}"]`);
     currentImg.dataset.isSelected = "true";
-    let { id, src } = picture.find((i) => i.id === currentID);
+    let { src } = picture.find((i) => i.id === newID);
     if (currentPicture) {
-        currentPicture.dataset.id = id;
+        currentPicture.dataset.id = newID;
         currentPicture.src = src;
     }
 }
-previousBtnSlider?.addEventListener("click", previousHandler);
-nextBtnSlider?.addEventListener("click", nextHandler);
 function closeSliderBtn() {
     overal?.classList.add(...["invisible", "opacity-0"]);
     slider?.classList.add(...["invisible", "opacity-0"]);
@@ -64,6 +57,8 @@ function closeSliderBtn() {
         div.dataset.isSelected = "false";
     });
 }
+previousBtnSlider?.addEventListener("click", previousHandler);
+nextBtnSlider?.addEventListener("click", nextHandler);
 overal?.addEventListener("click", closeSliderBtn);
 closeSlider?.addEventListener("click", closeSliderBtn);
 galleryPicture?.querySelectorAll("div").forEach((div) => div.addEventListener("click", () => {
