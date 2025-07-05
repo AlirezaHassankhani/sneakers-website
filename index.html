@@ -122,44 +122,52 @@
             <div>
               <img src="./assets/images/image-product-1.jpg" alt="product" class="rounded-2xl" />
 
-              <div
-                class="gallery-picture max-lg:hidden grid grid-cols-4 gap-4 xl:gap-10 mt-8 [&>div]:transition-all"
-              >
+              <div class="gallery-picture max-lg:hidden grid grid-cols-4 gap-4 xl:gap-10 mt-8">
                 <div
-                  class="rounded-2xl cursor-pointer overflow-hidden group border-2 border-orange"
+                  class="relative rounded-2xl cursor-pointer overflow-hidden"
+                  data-is-selected="true"
+                  data-id="1"
                 >
                   <img
                     src="./assets/images/image-product-1-thumbnail.jpg"
                     alt="product-thumbnail"
-                    class="object-cover opacity-50"
-                    data-id="1"
+                    class="object-cover"
                   />
                 </div>
 
-                <div class="rounded-2xl cursor-pointer overflow-hidden group">
+                <div
+                  class="relative rounded-2xl cursor-pointer overflow-hidden"
+                  data-is-selected="false"
+                  data-id="2"
+                >
                   <img
                     src="./assets/images/image-product-2-thumbnail.jpg"
                     alt="product-thumbnail"
-                    class="object-cover transition-all group-hover:opacity-50"
-                    data-id="2"
+                    class="object-cover"
                   />
                 </div>
 
-                <div class="rounded-2xl cursor-pointer overflow-hidden group">
+                <div
+                  class="relative rounded-2xl cursor-pointer overflow-hidden"
+                  data-is-selected="false"
+                  data-id="3"
+                >
                   <img
                     src="./assets/images/image-product-3-thumbnail.jpg"
                     alt="product-thumbnail"
-                    class="object-cover transition-all group-hover:opacity-50"
-                    data-id="3"
+                    class="object-cover"
                   />
                 </div>
 
-                <div class="rounded-2xl cursor-pointer overflow-hidden group">
+                <div
+                  class="relative rounded-2xl cursor-pointer overflow-hidden"
+                  data-is-selected="false"
+                  data-id="4"
+                >
                   <img
                     src="./assets/images/image-product-4-thumbnail.jpg"
                     alt="product-thumbnail"
-                    class="object-cover transition-all group-hover:opacity-50"
-                    data-id="4"
+                    class="object-cover"
                   />
                 </div>
               </div>
@@ -272,7 +280,9 @@
           </svg>
         </div>
 
-        <div class="current-picture"></div>
+        <div>
+          <img src="#" alt="product" class="current-picture w-md rounded-2xl">
+        </div>
 
         <div
           class="bg-white size-12 rounded-full flex justify-center items-center text-slate-900 cursor-pointer -ms-6 z-10 group"
@@ -289,40 +299,52 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-4 gap-4 xl:gap-10 w-sm">
-        <div class="relative rounded-2xl cursor-pointer overflow-hidden" data-is-selected="true">
+      <div class="slider-navigation grid grid-cols-4 gap-4 xl:gap-10 w-sm">
+        <div
+          class="relative rounded-2xl cursor-pointer overflow-hidden"
+          data-is-selected="false"
+          data-id="1"
+        >
           <img
             src="./assets/images/image-product-1-thumbnail.jpg"
             alt="product-thumbnail"
             class="object-cover"
-            data-id="1"
           />
         </div>
 
-        <div class="relative rounded-2xl cursor-pointer overflow-hidden" data-is-selected="false">
+        <div
+          class="relative rounded-2xl cursor-pointer overflow-hidden"
+          data-is-selected="false"
+          data-id="2"
+        >
           <img
             src="./assets/images/image-product-2-thumbnail.jpg"
             alt="product-thumbnail"
             class="object-cover"
-            data-id="2"
           />
         </div>
 
-        <div class="relative rounded-2xl cursor-pointer overflow-hidden" data-is-selected="false">
+        <div
+          class="relative rounded-2xl cursor-pointer overflow-hidden"
+          data-is-selected="false"
+          data-id="3"
+        >
           <img
             src="./assets/images/image-product-3-thumbnail.jpg"
             alt="product-thumbnail"
             class="object-cover"
-            data-id="3"
           />
         </div>
 
-        <div class="relative rounded-2xl cursor-pointer overflow-hidden" data-is-selected="false">
+        <div
+          class="relative rounded-2xl cursor-pointer overflow-hidden"
+          data-is-selected="false"
+          data-id="4"
+        >
           <img
             src="./assets/images/image-product-4-thumbnail.jpg"
             alt="product-thumbnail"
             class="object-cover"
-            data-id="4"
           />
         </div>
       </div>
