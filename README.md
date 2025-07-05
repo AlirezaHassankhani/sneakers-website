@@ -1,6 +1,6 @@
-# Skeakers 🥿
+# Sneakers 🥿
 
-Skeakers is a simple and responsive single-page web application that showcases a product with its image, description, and a functional "Add to Cart" button. Built with modern technologies, the project focuses on clean design, responsiveness, and a custom-built image slider component.
+Sneakers is a simple and responsive single-page web application that showcases a product with its image, description, and a functional "Add to Cart" button. Built with modern technologies, the project focuses on clean design, responsiveness, and a custom-built image slider component.
 
 ## ✨ Features
 
