@@ -1,9 +1,5 @@
 /*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
 @layer properties;
-@font-face {
-  font-family: "Kumbh Sans";
-  src: url("../assets/fonts/KumbhSans-VariableFont_YOPQ\,wght.ttf") format("truetype");
-}
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -654,6 +650,13 @@
       color: var(--color-slate-900);
     }
   }
+  .\[\&\>div\]\:transition-all {
+    &>div {
+      transition-property: all;
+      transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+      transition-duration: var(--tw-duration, var(--default-transition-duration));
+    }
+  }
 }
 [data-is-selected="true"] {
   border-style: var(--tw-border-style);
@@ -668,13 +671,18 @@
   height: 100%;
   top: 0;
 }
-[data-is-selected="false"]:hover::after {
+[data-is-selected="false"]::after {
   position: absolute;
   content: "";
   background-color: rgba(255, 255, 255, 0.6);
   width: 100%;
   height: 100%;
   top: 0;
+  opacity: 0;
+  transition: all ease 150ms;
+}
+[data-is-selected="false"]:hover::after {
+  opacity: 1;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
