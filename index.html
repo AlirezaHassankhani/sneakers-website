@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles/slider.css">
     <link rel="stylesheet" href="./styles/main.css" />
     <script type="module" src="/js/script.js" defer></script>
     <script src="/js/slider.js" defer></script>
@@ -122,7 +123,7 @@
             <div>
               <img src="./assets/images/image-product-1.jpg" alt="product" class="rounded-2xl" />
 
-              <div class="slider-navigation max-lg:hidden grid grid-cols-4 gap-4 xl:gap-10 mt-8" data-position="out">
+              <div class="gallery-picture max-lg:hidden grid grid-cols-4 gap-4 xl:gap-10 mt-8">
                 <div
                   class="relative rounded-2xl cursor-pointer overflow-hidden"
                   data-is-selected="true"
@@ -263,7 +264,7 @@
     </main>
 
     <div
-      class="slider fixed w-full h-full top-0 left-0 z-50 flex flex-col justify-center items-center gap-8 invisible opacity-0"
+      class="slider fixed w-fit h-full top-0 z-50 flex flex-col justify-center items-center gap-8 invisible opacity-0"
     >
       <div class="flex items-center">
         <div
@@ -299,7 +300,7 @@
         </div>
       </div>
 
-      <div class="slider-navigation grid grid-cols-4 gap-4 xl:gap-10 w-sm" data-position="in">
+      <div class="slider-navigation grid grid-cols-4 gap-4 xl:gap-10 w-sm">
         <div
           class="relative rounded-2xl cursor-pointer overflow-hidden"
           data-is-selected="false"

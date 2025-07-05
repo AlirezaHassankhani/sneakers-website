@@ -1,0 +1,27 @@
+[data-is-selected="true"] {
+    border: 2px solid hsl(26, 100%, 55%);
+}
+
+[data-is-selected="true"]::after {
+    position: absolute;
+    content: "";
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+[data-is-selected="false"]::after {
+    position: absolute;
+    content: "";
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    transition: all ease 150ms;
+}
+
+[data-is-selected="false"]:hover::after {
+    opacity: 1;
+}

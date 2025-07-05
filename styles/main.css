@@ -263,6 +263,9 @@
   .grid {
     display: grid;
   }
+  .table {
+    display: table;
+  }
   .size-8 {
     width: calc(var(--spacing) * 8);
     height: calc(var(--spacing) * 8);
@@ -293,6 +296,9 @@
   .w-80 {
     width: calc(var(--spacing) * 80);
   }
+  .w-fit {
+    width: fit-content;
+  }
   .w-full {
     width: 100%;
   }
@@ -302,11 +308,17 @@
   .w-sm {
     width: var(--container-sm);
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .cursor-default {
     cursor: default;
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -383,6 +395,14 @@
   .rounded-sm {
     border-radius: var(--radius-sm);
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
@@ -429,11 +449,17 @@
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
   .px-2\.5 {
     padding-inline: calc(var(--spacing) * 2.5);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
+  }
+  .py-0 {
+    padding-block: calc(var(--spacing) * 0);
   }
   .py-0\.5 {
     padding-block: calc(var(--spacing) * 0.5);
@@ -487,6 +513,9 @@
   .line-through {
     text-decoration-line: line-through;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .opacity-0 {
     opacity: 0%;
   }
@@ -494,11 +523,26 @@
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .shadow-slate-900 {
+    --tw-shadow-color: hsl(220, 13%, 13%);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-shadow-color: color-mix(in oklab, var(--color-slate-900) var(--tw-shadow-alpha), transparent);
+    }
+  }
   .shadow-slate-900\/50 {
     --tw-shadow-color: color-mix(in srgb, hsl(220, 13%, 13%) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-slate-900) 50%, transparent) var(--tw-shadow-alpha), transparent);
     }
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .transition-all {
     transition-property: all;
@@ -650,39 +694,10 @@
       color: var(--color-slate-900);
     }
   }
-  .\[\&\>div\]\:transition-all {
-    &>div {
-      transition-property: all;
-      transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-      transition-duration: var(--tw-duration, var(--default-transition-duration));
-    }
-  }
 }
-[data-is-selected="true"] {
-  border-style: var(--tw-border-style);
-  border-width: 2px;
-  border-color: var(--color-orange);
-}
-[data-is-selected="true"]::after {
-  position: absolute;
-  content: "";
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 100%;
-  height: 100%;
-  top: 0;
-}
-[data-is-selected="false"]::after {
-  position: absolute;
-  content: "";
-  background-color: rgba(255, 255, 255, 0.6);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  opacity: 0;
-  transition: all ease 150ms;
-}
-[data-is-selected="false"]:hover::after {
-  opacity: 1;
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("../assets/fonts/KumbhSans-VariableFont_YOPQ\,wght.ttf") format("truetype");
 }
 @property --tw-space-y-reverse {
   syntax: "*";
@@ -768,6 +783,11 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -789,6 +809,7 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
     }
   }
 }
