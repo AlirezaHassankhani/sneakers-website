@@ -2,7 +2,7 @@
 let overal = document.querySelector(".overlay");
 let slider = document.querySelector(".slider");
 let currentPicture = document.querySelector(".current-picture");
-let sliderNavigation = document.querySelectorAll("[data-slider-id] = ");
+let sliderNavigation = document.querySelectorAll(".slider-navigation");
 let picture = [
     {
         id: "1",
@@ -34,17 +34,22 @@ let picture = [
 //     }
 //   })
 // );
+function getCurrentImg() { }
 sliderNavigation.forEach((navigation) => {
     navigation.querySelectorAll("div").forEach((div) => {
         div.addEventListener("click", () => {
-            overal?.classList.remove(...["invisible", "opacity-0"]);
-            slider?.classList.remove(...["invisible", "opacity-0"]);
+            if (div.parentElement?.dataset.position === "out") {
+                overal?.classList.remove(...["invisible", "opacity-0"]);
+                slider?.classList.remove(...["invisible", "opacity-0"]);
+            }
             let { id, src } = picture.find((i) => i.id == div.dataset.id);
-            // let previousImg: HTMLImageElement = sliderNavigation?.querySelector(
-            //   `[data-id="${currentPicture.dataset.id}"]`
-            // )!;
-            // previousImg.dataset.isSelected = "false";
-            // div.dataset.isSelected = "true";
+            // sliderNavigation?.forEach((e) => {
+            //   let previousImg: HTMLImageElement = e.querySelector(
+            //     `[data-id="${currentPicture.dataset.id}"]`
+            //   )!;
+            //   previousImg.dataset.isSelected = "false";
+            // });
+            div.dataset.isSelected = "true";
             if (currentPicture) {
                 currentPicture.dataset.id = id;
                 currentPicture.src = src;
