@@ -1,10 +1,9 @@
+@import "tailwindcss";
+
 @font-face {
     font-family: "Kumbh Sans";
     src: url("../assets/fonts/KumbhSans-VariableFont_YOPQ\,wght.ttf") format("truetype");
 }
-
-@import "tailwindcss";
-
 
 @utility container {
     margin-inline: auto;
@@ -44,11 +43,9 @@
     height: 100%;
     top: 0;
     opacity: 0;
-    transform: scale(0.95);
     transition: all ease 150ms;
 }
 
 [data-is-selected="false"]:hover::after {
-    transform: scale(1);
     opacity: 1;
 }
