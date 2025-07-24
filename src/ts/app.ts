@@ -1,4 +1,5 @@
 import Cart from "./cart.js";
+import Counter from "./counter.js";
 
 const $ = document;
 
@@ -12,6 +13,12 @@ const addCartBtn = $.querySelector(".add-cart-btn");
 const cartBox = $.querySelector(".cart-box");
 
 const cart = new Cart(JSON.parse(localStorage.getItem("products") || "[]"));
+const counter = new Counter(0);
+
+const counterWrapper = $.querySelector(".counter");
+const increaseBtn = counterWrapper?.querySelector(".increase-btn");
+const decreaseBtn = counterWrapper?.querySelector(".decrease-btn");
+const counterDisplay = $.querySelector(".counter-display");
 
 // Global event
 function globalEvent(
@@ -70,17 +77,37 @@ function closeMenuHandler() {
 }
 
 // Add cart
-
 addCartBtn?.addEventListener("click", addCartHandler);
 
 function addCartHandler() {
-    const newProduct = {
-        id: crypto.randomUUID(),
-        name: "fall limited edition sneakers",
-        price: 150,
-        count: 1
-    }
-    cart.setCart(newProduct);
-    localStorage.setItem("products", JSON.stringify(cart.getCart()))
+  if (counter.getCount() === 0) return;
+
+  const newProduct = {
+    id: crypto.randomUUID(),
+    name: "fall limited edition sneakers",
+    price: 150,
+    count: counter.getCount(),
+  };
+  cart.setCart(newProduct);
+  localStorage.setItem("products", JSON.stringify(cart.getCart()));
+
+  counter.setCount(0);
+  updateDisplayCounter();
 }
 
+// Counter
+increaseBtn?.addEventListener("click", () => {
+  counter.increaseCount();
+  updateDisplayCounter();
+});
+
+decreaseBtn?.addEventListener("click", () => {
+  counter.decreaseCount();
+  updateDisplayCounter();
+});
+
+function updateDisplayCounter() {
+  if (counterDisplay instanceof HTMLElement) {
+    counterDisplay.textContent = String(counter.getCount());
+  }
+}
