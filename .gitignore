@@ -1,13 +1,3 @@
 /node_modules
 
-/package.json
-
-/package-lock.json
-
-/styles/input.css
-
-/tsconfig.json
-
-/ts
-
-/.prettierrc.json
+/dist
