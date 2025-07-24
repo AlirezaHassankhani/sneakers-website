@@ -16,36 +16,38 @@ class Cosmos {
     if (query instanceof HTMLDivElement) {
       this.wrapper = query;
     } else {
-      throw new Error("wrapper is invalid");
+      throw new Error("Wrapper is invalid");
     }
 
     const mainView = this.wrapper.querySelector(".main-view");
     const thumbnailStrip = this.wrapper.querySelector(".thumbnail-strip");
 
     if (!mainView || !thumbnailStrip) {
-      throw Error("wrapper is invalid");
+      throw Error("Wrapper is invalid");
     }
 
     if (mainView instanceof HTMLImageElement) {
       this.mainView = mainView;
       this.changeMainViewImage(items[0].src);
     } else {
-      throw new Error("wrapper is invalid");
+      throw new Error("Main view (.main-view) must be an <img> inside the wrapper.");
     }
 
     if (thumbnailStrip instanceof HTMLDivElement) {
       this.thumbnailStrip = thumbnailStrip;
-      this.thumbnailStrip.classList.add(...["max-lg:hidden", "grid", "grid-cols-4", "gap-4", "xl:gap-10", "mt-8"]);
+      this.thumbnailStrip.classList.add(
+        ...["max-lg:hidden", "grid", "grid-cols-4", "gap-4", "xl:gap-10", "mt-8"]
+      );
     } else {
-      throw new Error("wrapper is invalid");
+      throw new Error("Thumbnail strip (.thumbnail-strip) must be a <div> inside the wrapper.");
     }
 
     this.items = items;
 
-    this.items.forEach((item) => this.thumbnailStrip.append(this.getThumbnailItmeTemplate(item)));
+    this.items.forEach((item) => this.thumbnailStrip.append(this.getThumbnailItemTemplate(item)));
   }
 
-  getThumbnailItmeTemplate({ src, thumbnail }: IItem): HTMLDivElement {
+  getThumbnailItemTemplate({ src, thumbnail }: IItem): HTMLDivElement {
     const image = $.createElement("img");
     image.src = thumbnail;
     image.classList.add(
@@ -69,13 +71,26 @@ class Cosmos {
 
     div.append(image);
 
-    div.addEventListener("click", () => this.changeMainViewImage(src));
+    div.addEventListener("click", () => {
+      this.disableAllThumbnails();
+      this.changeMainViewImage(src);
+      div.dataset.isSelected = "true";
+    });
 
     return div;
   }
 
   changeMainViewImage(src: string) {
     this.mainView.src = src;
+  }
+
+  disableAllThumbnails() {
+    const thumbnailItems = this.thumbnailStrip.querySelectorAll(".thumbnail-item");
+    thumbnailItems.forEach((thumbnailItem) => {
+      if (thumbnailItem instanceof HTMLDivElement) {
+        thumbnailItem.dataset.isSelected = "false";
+      }
+    });
   }
 }
 
