@@ -1,3 +1,5 @@
+import Cart from "./cart.js";
+
 const $ = document;
 
 const overlay = $.querySelector(".overlay");
@@ -6,7 +8,10 @@ const mobileMenu = $.querySelector(".mobile-menu");
 const menuOpenBtn = $.querySelector(".menu-open-btn");
 const menuCloseBtn = $.querySelector(".menu-close-btn");
 
+const addCartBtn = $.querySelector(".add-cart-btn");
 const cartBox = $.querySelector(".cart-box");
+
+const cart = new Cart(JSON.parse(localStorage.getItem("products") || "[]"));
 
 // Global event
 function globalEvent(
@@ -64,4 +69,18 @@ function closeMenuHandler() {
   }
 }
 
+// Add cart
+
+addCartBtn?.addEventListener("click", addCartHandler);
+
+function addCartHandler() {
+    const newProduct = {
+        id: crypto.randomUUID(),
+        name: "fall limited edition sneakers",
+        price: 150,
+        count: 1
+    }
+    cart.setCart(newProduct);
+    localStorage.setItem("products", JSON.stringify(cart.getCart()))
+}
 
