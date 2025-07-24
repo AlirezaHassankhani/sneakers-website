@@ -1,5 +1,6 @@
 import Cart from "./cart.js";
 import Counter from "./counter.js";
+import Cosmos, { IItem } from "./cosmos.js";
 
 const $ = document;
 
@@ -166,7 +167,6 @@ function getCartProductTemplate({
 }
 
 // Delete cart (with event delegation logic)
-
 cartBox?.addEventListener("click", function (e) {
   const target = e.target;
 
@@ -183,3 +183,24 @@ cartBox?.addEventListener("click", function (e) {
     }
   }
 });
+
+const items: IItem[] = [
+  {
+    thumbnail: "./public/images/image-product-1-thumbnail.jpg",
+    src: "./public/images/image-product-1.jpg",
+  },
+  {
+    thumbnail: "./public/images/image-product-2-thumbnail.jpg",
+    src: "./public/images/image-product-2.jpg",
+  },
+  {
+    thumbnail: "./public/images/image-product-3-thumbnail.jpg",
+    src: "./public/images/image-product-3.jpg",
+  },
+  {
+    thumbnail: "./public/images/image-product-4-thumbnail.jpg",
+    src: "./public/images/image-product-4.jpg",
+  },
+];
+
+const cosmos = new Cosmos(".cosmos-gallery", items);
