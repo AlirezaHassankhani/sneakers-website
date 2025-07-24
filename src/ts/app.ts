@@ -23,21 +23,6 @@ const counterDisplay = $.querySelector(".counter-display");
 // Dom load
 $.addEventListener("DOMContentLoaded", setCart);
 
-// Global event
-function globalEvent(
-  selector: string,
-  type: string,
-  parent: Element | null,
-  callback: (e: Event) => void
-) {
-  parent?.addEventListener(type, function (e) {
-    const target = e.target;
-    if (target instanceof HTMLElement) {
-      if (target.closest(selector)) callback(e);
-    }
-  });
-}
-
 // Overlay logic
 overlay?.addEventListener("click", closeOverlay);
 
@@ -130,8 +115,7 @@ function setCart() {
       cartBox.innerHTML = "";
       cartBox.append(fragment);
     }
-  }else {
-    console.log("hello world")
+  } else {
     const divElem = $.createElement("div");
     divElem.classList.add(...["flex", "justify-center", "items-center", "h-full"]);
 
@@ -139,7 +123,10 @@ function setCart() {
     pElem.textContent = "Cart is empty";
 
     divElem.append(pElem);
-    cartBox?.append(divElem);
+    if (cartBox instanceof HTMLElement) {
+      cartBox.innerHTML = "";
+      cartBox?.append(divElem);
+    }
   }
 }
 
@@ -162,7 +149,7 @@ function getCartProductTemplate({
       <span class="text-black font-bold ms-2">$${price * count}.00</span>
     </p>
   </div>
-  <div class="cursor-pointer">
+  <div class="delete-cart-btn cursor-pointer">
     <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
         <path
@@ -177,3 +164,22 @@ function getCartProductTemplate({
 
     `;
 }
+
+// Delete cart (with event delegation logic)
+
+cartBox?.addEventListener("click", function (e) {
+  const target = e.target;
+
+  if (target instanceof Element) {
+    const deleteCartBtn = target.closest(".delete-cart-btn");
+
+    if (deleteCartBtn) {
+      const product = deleteCartBtn?.closest("[data-id]");
+      if (product instanceof HTMLElement) {
+        cart.deleteFromCart(product.dataset.id || "");
+        localStorage.setItem("products", JSON.stringify(cart.getCart()));
+        setCart();
+      }
+    }
+  }
+});
