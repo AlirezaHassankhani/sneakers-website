@@ -1,6 +1,5 @@
 import Cart from "./cart.js";
 import Counter from "./counter.js";
-import Cosmos, { IItem } from "./cosmos.js";
 
 const $ = document;
 
@@ -20,6 +19,14 @@ const counterWrapper = $.querySelector(".counter");
 const increaseBtn = counterWrapper?.querySelector(".increase-btn");
 const decreaseBtn = counterWrapper?.querySelector(".decrease-btn");
 const counterDisplay = $.querySelector(".counter-display");
+
+const thumbnailItems = $.querySelectorAll(".thumbnail-item");
+const mainView = $.querySelector(".main-view");
+
+const galleryModule = $.querySelector(".gallery-module");
+const galleryCloseModule = $.querySelector(".gallery-close-module");
+const moduleThumbnails = $.querySelectorAll(".module-thumbnail");
+const moduleMainView = $.querySelector(".module-main-view");
 
 // Dom load
 $.addEventListener("DOMContentLoaded", setCart);
@@ -184,23 +191,93 @@ cartBox?.addEventListener("click", function (e) {
   }
 });
 
-const items: IItem[] = [
-  {
-    thumbnail: "./public/images/image-product-1-thumbnail.jpg",
-    src: "./public/images/image-product-1.jpg",
-  },
-  {
-    thumbnail: "./public/images/image-product-2-thumbnail.jpg",
-    src: "./public/images/image-product-2.jpg",
-  },
-  {
-    thumbnail: "./public/images/image-product-3-thumbnail.jpg",
-    src: "./public/images/image-product-3.jpg",
-  },
-  {
-    thumbnail: "./public/images/image-product-4-thumbnail.jpg",
-    src: "./public/images/image-product-4.jpg",
-  },
+// Gallery handler
+const items = [
+  { id: "1", src: "./public/images/image-product-1.jpg" },
+  { id: "2", src: "./public/images/image-product-2.jpg" },
+  { id: "3", src: "./public/images/image-product-3.jpg" },
+  { id: "4", src: "./public/images/image-product-4.jpg" },
 ];
 
-const cosmos = new Cosmos(".cosmos-gallery", items);
+thumbnailItems?.forEach((thumbnailItem) => {
+  if (thumbnailItem instanceof HTMLElement) {
+    thumbnailItem.addEventListener("click", function (e) {
+      const currentElement = e.currentTarget;
+      if (currentElement instanceof HTMLElement) {
+        disableAllThumbnails();
+        currentElement.dataset.isSelected = "true";
+        if (currentElement.dataset.id) changeMainView(currentElement.dataset.id);
+      }
+    });
+  }
+});
+
+function disableAllThumbnails() {
+  thumbnailItems?.forEach((thumbnailItem) => {
+    if (thumbnailItem instanceof HTMLElement) {
+      thumbnailItem.dataset.isSelected = "false";
+    }
+  });
+}
+
+function changeMainView(ID: string) {
+  const { src } = items.find((item) => item.id === ID)!;
+
+  if (mainView instanceof HTMLImageElement) {
+    mainView.src = src;
+    mainView.dataset.id = ID;
+  }
+}
+
+// Gallery module
+mainView?.addEventListener("click", () => {
+  disableAllModuleThumbnails();
+  if (galleryModule instanceof HTMLElement) {
+    openOverlay();
+    galleryModule.dataset.isOpen = "true";
+  }
+
+  if (mainView instanceof HTMLElement) {
+    if (mainView.dataset.id) {
+      changeModuleMainView(mainView.dataset.id);
+      changeThumbnail(mainView.dataset.id);
+    }
+  }
+});
+
+function changeThumbnail(ID: string) {
+  disableAllModuleThumbnails();
+  moduleThumbnails.forEach((moduleThumbnail) => {
+    if (moduleThumbnail instanceof HTMLElement) {
+      if (moduleThumbnail.dataset.id === ID) moduleThumbnail.dataset.isSelected = "true";
+    }
+  });
+}
+
+galleryCloseModule?.addEventListener("click", closeOverlay);
+
+moduleThumbnails?.forEach((moduleThumbnail) => {
+  moduleThumbnail?.addEventListener("click", function () {
+    if (moduleThumbnail instanceof HTMLElement) {
+      disableAllModuleThumbnails();
+      moduleThumbnail.dataset.isSelected = "true";
+      const ID: string | undefined = moduleThumbnail.dataset.id;
+      if (ID) changeModuleMainView(ID);
+    }
+  });
+});
+
+function changeModuleMainView(ID: string) {
+  const { src } = items.find((item) => item.id === ID)!;
+  if (moduleMainView instanceof HTMLImageElement) {
+    moduleMainView.src = src;
+  }
+}
+
+function disableAllModuleThumbnails() {
+  moduleThumbnails?.forEach((moduleThumbnail) => {
+    if (moduleThumbnail instanceof HTMLElement) {
+      moduleThumbnail.dataset.isSelected = "false";
+    }
+  });
+}

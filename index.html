@@ -121,14 +121,30 @@
         <div class="lg:p-20">
           <div class="flex max-lg:flex-wrap gap-20">
             <div class="flex-2/5">
-              <div class="cosmos-gallery">
+              <div class="flex flex-col gap-4">
                 <img
+                  data-id="1"
                   alt="product"
                   class="main-view rounded-2xl"
+                  src="./public/images/image-product-1.jpg"
                 />
 
-                <div class="thumbnail-strip">
-                  
+                <div class="grid grid-cols-4 gap-4">
+                  <div data-is-selected="true" data-id="1" class="thumbnail-item relative cursor-pointer rounded-2xl overflow-hidden data-[is-selected=false]:before:hidden before:absolute before:w-full before:top-0 before:bottom-0 before:bg-white/70  border-orange data-[is-selected=true]:border-2">
+                    <img src="./public/images/image-product-1-thumbnail.jpg" class="object-cover" alt="">
+                  </div>
+
+                  <div data-is-selected="false" data-id="2" class="thumbnail-item relative cursor-pointer rounded-2xl overflow-hidden data-[is-selected=false]:before:hidden before:absolute before:w-full before:top-0 before:bottom-0 before:bg-white/70 border-orange data-[is-selected=true]:border-2">
+                    <img src="./public/images/image-product-2-thumbnail.jpg" class="object-cover" alt="">
+                  </div>
+
+                  <div data-is-selected="false" data-id="3" class="thumbnail-item relative cursor-pointer rounded-2xl overflow-hidden data-[is-selected=false]:before:hidden before:absolute before:w-full before:top-0 before:bottom-0 before:bg-white/70 border-orange data-[is-selected=true]:border-2">
+                    <img src="./public/images/image-product-3-thumbnail.jpg" class="object-cover" alt="">
+                  </div>
+
+                  <div data-is-selected="false" data-id="4" class="thumbnail-item relative cursor-pointer rounded-2xl overflow-hidden data-[is-selected=false]:before:hidden before:absolute before:w-full before:top-0 before:bottom-0 before:bg-white/70 border-orange data-[is-selected=true]:border-2">
+                    <img src="./public/images/image-product-4-thumbnail.jpg" class="object-cover" alt="">
+                  </div>
                 </div>
               </div>
             </div>
@@ -224,9 +240,10 @@
 
     <!-- Module -->
     <div
-      class="max-lg:hidden slider fixed w-fit h-full top-0 right-[calc(50%_-_248px)] flex flex-col justify-center items-end gap-10 z-50 invisible opacity-0"
+      data-is-open="false"
+      class="gallery-module max-lg:hidden fixed top-1/2 left-1/2 -translate-1/2 flex flex-col justify-center items-end gap-10 z-50 data-[is-open=false]:hidden"
     >
-      <div class="close-slider cursor-pointer group">
+      <div class="gallery-close-module cursor-pointer group">
         <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
           <path
             d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
@@ -239,7 +256,7 @@
       <div class="flex flex-col justify-center items-center gap-8">
         <div class="flex items-center">
           <div
-            class="previous-btn-slider bg-white size-12 rounded-full flex justify-center items-center text-slate-900 cursor-pointer -me-6 z-10 group"
+            class=" bg-white size-12 rounded-full flex justify-center items-center text-slate-900 cursor-pointer -me-6 z-10 group"
           >
             <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -253,7 +270,7 @@
           </div>
 
           <div>
-            <img src="#" alt="product" class="current-picture w-md rounded-2xl" />
+            <img src="#" alt="product" class="module-main-view w-md rounded-2xl" />
           </div>
 
           <div
@@ -271,9 +288,9 @@
           </div>
         </div>
 
-        <div class="slider-navigation grid grid-cols-4 gap-4 xl:gap-10 w-sm">
+        <div class="grid grid-cols-4 gap-4 xl:gap-10 w-sm">
           <div
-            class="relative rounded-2xl cursor-pointer overflow-hidden"
+            class="module-thumbnail relative rounded-2xl cursor-pointer overflow-hidden data-[is-selected=false]:before:hidden before:absolute before:w-full before:top-0 before:bottom-0 before:bg-white/70  border-orange data-[is-selected=true]:border-2"
             data-is-selected="false"
             data-id="1"
           >
@@ -285,7 +302,7 @@
           </div>
 
           <div
-            class="relative rounded-2xl cursor-pointer overflow-hidden"
+            class="module-thumbnail relative rounded-2xl cursor-pointer overflow-hidden data-[is-selected=false]:before:hidden before:absolute before:w-full before:top-0 before:bottom-0 before:bg-white/70  border-orange data-[is-selected=true]:border-2"
             data-is-selected="false"
             data-id="2"
           >
@@ -297,7 +314,7 @@
           </div>
 
           <div
-            class="relative rounded-2xl cursor-pointer overflow-hidden"
+            class="module-thumbnail relative rounded-2xl cursor-pointer overflow-hidden data-[is-selected=false]:before:hidden before:absolute before:w-full before:top-0 before:bottom-0 before:bg-white/70  border-orange data-[is-selected=true]:border-2"
             data-is-selected="false"
             data-id="3"
           >
@@ -309,7 +326,7 @@
           </div>
 
           <div
-            class="relative rounded-2xl cursor-pointer overflow-hidden"
+            class="module-thumbnail relative rounded-2xl cursor-pointer overflow-hidden data-[is-selected=false]:before:hidden before:absolute before:w-full before:top-0 before:bottom-0 before:bg-white/70  border-orange data-[is-selected=true]:border-2"
             data-is-selected="false"
             data-id="4"
           >
