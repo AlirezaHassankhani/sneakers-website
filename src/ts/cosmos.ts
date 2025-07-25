@@ -44,10 +44,10 @@ class Cosmos {
 
     this.items = items;
 
-    this.items.forEach((item) => this.thumbnailStrip.append(this.getThumbnailItemTemplate(item)));
+    this.items.forEach((item, index) => this.thumbnailStrip.append(this.getThumbnailItemTemplate(item, index)));
   }
 
-  getThumbnailItemTemplate({ src, thumbnail }: IItem): HTMLDivElement {
+  getThumbnailItemTemplate({ src, thumbnail }: IItem, index: number): HTMLDivElement {
     const image = $.createElement("img");
     image.src = thumbnail;
     image.classList.add(
@@ -55,7 +55,8 @@ class Cosmos {
     );
 
     const div = $.createElement("div");
-    div.dataset.isSelected = "false";
+    if(index === 0) div.dataset.isSelected = "true";
+    else div.dataset.isSelected = "false";
     div.classList.add(
       ...[
         "thumbnail-item",
