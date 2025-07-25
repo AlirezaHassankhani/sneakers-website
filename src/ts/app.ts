@@ -282,6 +282,7 @@ function changeModuleMainView(ID: string) {
   const { src } = items.find((item) => item.id === ID)!;
   if (moduleMainView instanceof HTMLImageElement) {
     moduleMainView.src = src;
+    moduleMainView.dataset.id = ID;
   }
 }
 
@@ -294,8 +295,12 @@ function disableAllModuleThumbnails() {
 }
 
 prevBtnGallery?.addEventListener("click", function() {
-
+  const currentID = Number((moduleMainView as HTMLElement).dataset.id);
+  let prevID = currentID > 1 ? currentID - 1 : 4;
+  changeThumbnail(String(prevID));
 })
 nextBtnGallery?.addEventListener("click", function() {
-
+  const currentID = Number((moduleMainView as HTMLElement).dataset.id);
+  let nextID = currentID < 4 ? currentID + 1 : 1;
+  changeThumbnail(String(nextID));
 })
