@@ -27,6 +27,8 @@ const galleryModule = $.querySelector(".gallery-module");
 const galleryCloseModule = $.querySelector(".gallery-close-module");
 const moduleThumbnails = $.querySelectorAll(".module-thumbnail");
 const moduleMainView = $.querySelector(".module-main-view");
+const prevBtnGallery = $.querySelector(".prev-btn-gallery");
+const nextBtnGallery = $.querySelector(".next-btn-gallery");
 
 // Dom load
 $.addEventListener("DOMContentLoaded", setCart);
@@ -225,47 +227,56 @@ function changeMainView(ID: string) {
 
   if (mainView instanceof HTMLImageElement) {
     mainView.src = src;
-    mainView.dataset.id = ID;
   }
+}
+
+function getActiveThumbnailID(): string {
+  let DEFAULT_ID = "1";
+
+  thumbnailItems?.forEach(thumbnailItem => {
+    if(thumbnailItem instanceof HTMLElement) {
+      if(thumbnailItem.dataset.isSelected === "true") {
+        DEFAULT_ID = thumbnailItem.dataset.id!;
+      }
+    }
+  })
+
+  return DEFAULT_ID;
 }
 
 // Gallery module
 mainView?.addEventListener("click", () => {
-  disableAllModuleThumbnails();
   if (galleryModule instanceof HTMLElement) {
     openOverlay();
     galleryModule.dataset.isOpen = "true";
   }
 
-  if (mainView instanceof HTMLElement) {
-    if (mainView.dataset.id) {
-      changeModuleMainView(mainView.dataset.id);
-      changeThumbnail(mainView.dataset.id);
-    }
-  }
+  changeThumbnail(getActiveThumbnailID());
 });
-
-function changeThumbnail(ID: string) {
-  disableAllModuleThumbnails();
-  moduleThumbnails.forEach((moduleThumbnail) => {
-    if (moduleThumbnail instanceof HTMLElement) {
-      if (moduleThumbnail.dataset.id === ID) moduleThumbnail.dataset.isSelected = "true";
-    }
-  });
-}
 
 galleryCloseModule?.addEventListener("click", closeOverlay);
 
 moduleThumbnails?.forEach((moduleThumbnail) => {
   moduleThumbnail?.addEventListener("click", function () {
     if (moduleThumbnail instanceof HTMLElement) {
-      disableAllModuleThumbnails();
-      moduleThumbnail.dataset.isSelected = "true";
       const ID: string | undefined = moduleThumbnail.dataset.id;
-      if (ID) changeModuleMainView(ID);
+      if(ID) changeThumbnail(ID);    
     }
   });
 });
+
+function changeThumbnail(ID: string) {
+  disableAllModuleThumbnails();
+
+  const thumbnail = Array.from(moduleThumbnails).find((moduleThumbnail) => {
+    if (moduleThumbnail instanceof HTMLElement) return moduleThumbnail.dataset.id === ID;
+  });
+
+  if (thumbnail instanceof HTMLElement) {
+    thumbnail.dataset.isSelected = "true";
+  }
+  if (ID) changeModuleMainView(ID);
+}
 
 function changeModuleMainView(ID: string) {
   const { src } = items.find((item) => item.id === ID)!;
@@ -281,3 +292,10 @@ function disableAllModuleThumbnails() {
     }
   });
 }
+
+prevBtnGallery?.addEventListener("click", function() {
+
+})
+nextBtnGallery?.addEventListener("click", function() {
+
+})
