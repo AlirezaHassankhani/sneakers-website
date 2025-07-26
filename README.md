@@ -13,13 +13,10 @@ Skeakers is a simple and responsive single-page web application that showcases a
 ## 🖼️ Screenshots
 
 ### Desktop View
-![Desktop Screenshot](LINK_TO_DESKTOP_IMAGE)
+![Desktop Screenshot](./public/images/desktop-design.jpg)
 
 ### Mobile View
-![Mobile Screenshot](LINK_TO_MOBILE_IMAGE)
-
-### Custom Image Slider
-![Image Slider](LINK_TO_SLIDER_IMAGE)
+![Mobile Screenshot](./public/images/mobile-design.jpg)
 
 
 ## 🛠️ Built With
@@ -31,8 +28,23 @@ Skeakers is a simple and responsive single-page web application that showcases a
 
 ## 🚀 Getting Started
 
-Clone the repository and open `index.html` in your browser:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/AlirezaHassankhani/sneakers-website/
-# Open index.html with Live Server or directly in the browser
+cd merto
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the development server
+
+```bash
+npm run dev
+```
+
+💥 And you’re good to go!
