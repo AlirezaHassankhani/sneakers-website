@@ -32,7 +32,7 @@ Skeakers is a simple and responsive single-page web application that showcases a
 
 ```bash
 git clone https://github.com/AlirezaHassankhani/sneakers-website/
-cd merto
+cd sneakers-website
 ```
 
 ### 2. Install dependencies
